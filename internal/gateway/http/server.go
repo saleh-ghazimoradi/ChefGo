@@ -3,6 +3,8 @@ package http
 import (
 	"errors"
 	"github.com/gofiber/fiber/v2"
+	"github.com/saleh-ghazimoradi/ChefGo/config"
+	"github.com/saleh-ghazimoradi/ChefGo/logger"
 	"github.com/saleh-ghazimoradi/ChefGo/utils"
 	"net/http"
 	"os"
