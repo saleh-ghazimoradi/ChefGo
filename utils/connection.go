@@ -2,18 +2,22 @@ package utils
 
 import (
 	"context"
+	"fmt"
+	"github.com/saleh-ghazimoradi/ChefGo/config"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
-	"time"
 )
 
 func ConnectMongoDB() (*mongo.Client, error) {
-	uri := "mongodb://admin:secret@localhost:27017"
+	uri := fmt.Sprintf("mongodb://%s:%s@%s:%s/?authSource=%s",
+		config.AppConfig.Databases.MongoDB.User, config.AppConfig.Databases.MongoDB.Pass, config.AppConfig.Databases.MongoDB.Host, config.AppConfig.Databases.MongoDB.Port, config.AppConfig.Databases.MongoDB.AuthSource)
 
-	clientOptions := options.Client().ApplyURI(uri)
+	clientOptions := options.Client().
+		ApplyURI(uri).
+		SetMaxPoolSize(config.AppConfig.Databases.MongoDB.MaxPoolSize)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), config.AppConfig.Databases.MongoDB.Timeout)
 	defer cancel()
 
 	client, err := mongo.Connect(ctx, clientOptions)
