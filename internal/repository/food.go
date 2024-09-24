@@ -7,8 +7,8 @@ import (
 )
 
 type Food interface {
-	GetFood(ctx context.Context, id string) (Food, error)
-	GetAllFood(ctx context.Context) ([]Food, error)
+	GetFood(ctx context.Context, id string) (service_models.Food, error)
+	GetAllFood(ctx context.Context) ([]service_models.Food, error)
 	CreateFood(ctx context.Context, food service_models.Food) (service_models.Food, error)
 	UpdateFood(ctx context.Context, id string, food service_models.Food) (service_models.Food, error)
 }
@@ -17,11 +17,11 @@ type FoodRepo struct {
 	collection *mongo.Collection
 }
 
-func (f *FoodRepo) GetAllFood(ctx context.Context) ([]Food, error) {
+func (f *FoodRepo) GetAllFood(ctx context.Context) ([]service_models.Food, error) {
 	return nil, nil
 }
 
-func (f *FoodRepo) GetFood(ctx context.Context, id string) (Food, error) {
+func (f *FoodRepo) GetFood(ctx context.Context, id string) (service_models.Food, error) {
 	return nil, nil
 }
 
