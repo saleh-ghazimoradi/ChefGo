@@ -13,28 +13,28 @@ type Invoice interface {
 	UpdateInvoice(ctx context.Context, id string) error
 }
 
-type InvoiceRepo struct {
+type invoiceRepo struct {
 	collection *mongo.Collection
 }
 
-func (i *InvoiceRepo) GetInvoice(ctx context.Context, id string) (service_models.Invoice, error) {
+func (i *invoiceRepo) GetInvoice(ctx context.Context, id string) (service_models.Invoice, error) {
 	return service_models.Invoice{}, nil
 }
 
-func (i *InvoiceRepo) GetInvoices(ctx context.Context) ([]service_models.Invoice, error) {
+func (i *invoiceRepo) GetInvoices(ctx context.Context) ([]service_models.Invoice, error) {
 	return nil, nil
 }
 
-func (i *InvoiceRepo) CreateInvoice(ctx context.Context, invoice service_models.Invoice) error {
+func (i *invoiceRepo) CreateInvoice(ctx context.Context, invoice service_models.Invoice) error {
 	return nil
 }
 
-func (i *InvoiceRepo) UpdateInvoice(ctx context.Context, id string) error {
+func (i *invoiceRepo) UpdateInvoice(ctx context.Context, id string) error {
 	return nil
 }
 
 func NewInvoiceRepo(db *mongo.Database) Invoice {
-	return &InvoiceRepo{
+	return &invoiceRepo{
 		collection: db.Collection("invoice"),
 	}
 }

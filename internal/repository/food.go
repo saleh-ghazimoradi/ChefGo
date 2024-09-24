@@ -13,28 +13,28 @@ type Food interface {
 	UpdateFood(ctx context.Context, id string) error
 }
 
-type FoodRepo struct {
+type foodRepo struct {
 	collection *mongo.Collection
 }
 
-func (f *FoodRepo) GetFoods(ctx context.Context) ([]service_models.Food, error) {
+func (f *foodRepo) GetFoods(ctx context.Context) ([]service_models.Food, error) {
 	return nil, nil
 }
 
-func (f *FoodRepo) GetFood(ctx context.Context, id string) (service_models.Food, error) {
+func (f *foodRepo) GetFood(ctx context.Context, id string) (service_models.Food, error) {
 	return service_models.Food{}, nil
 }
 
-func (f *FoodRepo) CreateFood(ctx context.Context, food service_models.Food) error {
+func (f *foodRepo) CreateFood(ctx context.Context, food service_models.Food) error {
 	return nil
 }
 
-func (f *FoodRepo) UpdateFood(ctx context.Context, id string) error {
+func (f *foodRepo) UpdateFood(ctx context.Context, id string) error {
 	return nil
 }
 
 func NewFoodRepo(db *mongo.Database) Food {
-	return &FoodRepo{
+	return &foodRepo{
 		collection: db.Collection("food"),
 	}
 }
