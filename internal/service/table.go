@@ -18,19 +18,19 @@ type tableService struct {
 }
 
 func (t *tableService) GetTable(ctx context.Context, id string) (service_models.Table, error) {
-	return service_models.Table{}, nil
+	return t.tableRepo.GetTable(ctx, id)
 }
 
 func (t *tableService) GetTables(ctx context.Context) ([]service_models.Table, error) {
-	return nil, nil
+	return t.tableRepo.GetTables(ctx)
 }
 
 func (t *tableService) CreateTable(ctx context.Context, menu service_models.Table) error {
-	return nil
+	return t.tableRepo.CreateTable(ctx, menu)
 }
 
 func (t *tableService) UpdateTable(ctx context.Context, id string) error {
-	return nil
+	return t.tableRepo.UpdateTable(ctx, id)
 }
 
 func NewTableService(tableRepo repository.Table) Table {
