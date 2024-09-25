@@ -18,20 +18,21 @@ type orderItemService struct {
 }
 
 func (o *orderItemService) GetOrderItem(ctx context.Context, id string) (service_models.OrderItem, error) {
-	return service_models.OrderItem{}, nil
+	return o.orderItemRepo.GetOrderItem(ctx, id)
 }
 
 func (o *orderItemService) GetOrderItems(ctx context.Context) ([]service_models.OrderItem, error) {
-	return nil, nil
+	return o.orderItemRepo.GetOrderItems(ctx)
 }
 
 func (o *orderItemService) CreateOrderItem(ctx context.Context, menu service_models.OrderItem) error {
-	return nil
+	return o.orderItemRepo.CreateOrderItem(ctx, menu)
 }
 
 func (o *orderItemService) UpdateOrderItem(ctx context.Context, id string) error {
-	return nil
+	return o.orderItemRepo.UpdateOrderItem(ctx, id)
 }
+
 func NewOrderItemService(orderItemRepo repository.OrderItem) OrderItem {
 	return &orderItemService{
 		orderItemRepo: orderItemRepo,
