@@ -18,19 +18,19 @@ type orderService struct {
 }
 
 func (o *orderService) GetOrder(ctx context.Context, id string) (service_models.Order, error) {
-	return service_models.Order{}, nil
+	return o.orderRepo.GetOrder(ctx, id)
 }
 
 func (o *orderService) GetOrders(ctx context.Context) ([]service_models.Order, error) {
-	return nil, nil
+	return o.orderRepo.GetOrders(ctx)
 }
 
 func (o *orderService) CreateOrder(ctx context.Context, menu service_models.Order) error {
-	return nil
+	return o.orderRepo.CreateOrder(ctx, menu)
 }
 
 func (o *orderService) UpdateOrder(ctx context.Context, id string) error {
-	return nil
+	return o.orderRepo.UpdateOrder(ctx, id)
 }
 
 func NewOrderService(orderRepo repository.Order) Order {
