@@ -18,19 +18,19 @@ type invoiceService struct {
 }
 
 func (i *invoiceService) GetInvoice(ctx context.Context, id string) (service_models.Invoice, error) {
-	return service_models.Invoice{}, nil
+	return i.invoiceRepo.GetInvoice(ctx, id)
 }
 
 func (i *invoiceService) GetInvoices(ctx context.Context) ([]service_models.Invoice, error) {
-	return nil, nil
+	return i.invoiceRepo.GetInvoices(ctx)
 }
 
 func (i *invoiceService) CreateInvoice(ctx context.Context, invoice service_models.Invoice) error {
-	return nil
+	return i.invoiceRepo.CreateInvoice(ctx, invoice)
 }
 
 func (i *invoiceService) UpdateInvoice(ctx context.Context, id string) error {
-	return nil
+	return i.invoiceRepo.UpdateInvoice(ctx, id)
 }
 
 func NewInvoiceService(invoiceRepo repository.Invoice) Invoice {
