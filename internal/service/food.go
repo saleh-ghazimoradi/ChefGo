@@ -18,19 +18,19 @@ type foodService struct {
 }
 
 func (f *foodService) GetFood(ctx context.Context, id string) (service_models.Food, error) {
-	return service_models.Food{}, nil
+	return f.foodRepo.GetFood(ctx, id)
 }
 
 func (f *foodService) GetFoods(ctx context.Context) ([]service_models.Food, error) {
-	return nil, nil
+	return f.foodRepo.GetFoods(ctx)
 }
 
 func (f *foodService) CreateFood(ctx context.Context, food service_models.Food) error {
-	return nil
+	return f.foodRepo.CreateFood(ctx, food)
 }
 
 func (f *foodService) UpdateFood(ctx context.Context, id string) error {
-	return nil
+	return f.foodRepo.UpdateFood(ctx, id)
 }
 
 func NewFoodService(foodRepo repository.Food) Food {
