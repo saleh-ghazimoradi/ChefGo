@@ -18,19 +18,19 @@ type menuService struct {
 }
 
 func (m *menuService) GetMenu(ctx context.Context, id string) (service_models.Menu, error) {
-	return service_models.Menu{}, nil
+	return m.menuRepo.GetMenu(ctx, id)
 }
 
 func (m *menuService) GetMenus(ctx context.Context) ([]service_models.Menu, error) {
-	return nil, nil
+	return m.menuRepo.GetMenus(ctx)
 }
 
 func (m *menuService) CreateMenu(ctx context.Context, menu service_models.Menu) error {
-	return nil
+	return m.menuRepo.CreateMenu(ctx, menu)
 }
 
 func (m *menuService) UpdateMenu(ctx context.Context, id string) error {
-	return nil
+	return m.menuRepo.UpdateMenu(ctx, id)
 }
 
 func NewMenuService(menuRepo repository.Menu) Menu {
