@@ -33,7 +33,7 @@ func (o *orderItems) UpdateOrderItem(c *fiber.Ctx) error {
 	return nil
 }
 
-func NewOrderItems(orderItemsService service.OrderItem) *orderItems {
+func NewOrderItemsHandler(orderItemsService service.OrderItem) *orderItems {
 	return &orderItems{
 		orderItemsService: orderItemsService,
 	}
