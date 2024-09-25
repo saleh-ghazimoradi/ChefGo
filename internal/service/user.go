@@ -20,19 +20,19 @@ type userService struct {
 }
 
 func (s *userService) GetUser(ctx context.Context, id string) (service_models.User, error) {
-	return service_models.User{}, nil
+	return s.userRepo.GetUser(ctx, id)
 }
 
 func (s *userService) GetUsers(ctx context.Context) ([]service_models.User, error) {
-	return nil, nil
+	return s.userRepo.GetUsers(ctx)
 }
 
-func (s *userService) CreateUser(ctx context.Context, menu service_models.User) error {
-	return nil
+func (s *userService) CreateUser(ctx context.Context, user service_models.User) error {
+	return s.userRepo.CreateUser(ctx, user)
 }
 
 func (s *userService) UpdateUser(ctx context.Context, id string) error {
-	return nil
+	return s.userRepo.UpdateUser(ctx, id)
 }
 
 func (s *userService) HashPassword(password string) (string, error) {
