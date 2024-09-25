@@ -7,29 +7,29 @@ import (
 )
 
 type Order interface {
-	GetMenu(ctx context.Context, id string) (service_models.Menu, error)
-	GetMenus(ctx context.Context) ([]service_models.Menu, error)
-	CreateMenu(ctx context.Context, menu service_models.Menu) error
-	UpdateMenu(ctx context.Context, id string) error
+	GetOrder(ctx context.Context, id string) (service_models.Order, error)
+	GetOrders(ctx context.Context) ([]service_models.Order, error)
+	CreateOrder(ctx context.Context, menu service_models.Order) error
+	UpdateOrder(ctx context.Context, id string) error
 }
 
 type orderRepo struct {
 	collection *mongo.Collection
 }
 
-func (o *orderRepo) GetMenu(ctx context.Context, id string) (service_models.Menu, error) {
-	return service_models.Menu{}, nil
+func (o *orderRepo) GetOrder(ctx context.Context, id string) (service_models.Order, error) {
+	return service_models.Order{}, nil
 }
 
-func (o *orderRepo) GetMenus(ctx context.Context) ([]service_models.Menu, error) {
+func (o *orderRepo) GetOrders(ctx context.Context) ([]service_models.Order, error) {
 	return nil, nil
 }
 
-func (o *orderRepo) CreateMenu(ctx context.Context, menu service_models.Menu) error {
+func (o *orderRepo) CreateOrder(ctx context.Context, menu service_models.Order) error {
 	return nil
 }
 
-func (o *orderRepo) UpdateMenu(ctx context.Context, id string) error {
+func (o *orderRepo) UpdateOrder(ctx context.Context, id string) error {
 	return nil
 }
 
